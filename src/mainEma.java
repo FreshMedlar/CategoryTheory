@@ -1,10 +1,9 @@
 import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.function.Function;
 
-public class Main {
+public class mainEma {
 
     public static <T> T id(T obj) {
         return obj;
@@ -21,9 +20,9 @@ public class Main {
         Integer number = 100;
 
         System.out.println("id . toString == toString : " +
-                Objects.equals(compose(Main::id, Object::toString).apply(number), number.toString()));
+                Objects.equals(compose(mainEma::id, Object::toString).apply(number), number.toString()));
 
         System.out.println("toString . id == toString : " +
-                Objects.equals(compose(Object::toString, Main::id).apply(number), number.toString()));
+                Objects.equals(compose(Object::toString, mainEma::id).apply(number), number.toString()));
     }
 }

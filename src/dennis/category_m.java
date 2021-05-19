@@ -7,7 +7,7 @@ public abstract class category_m <E>{
     String id ="";
     public ArrayList<element<E>> element_list = new ArrayList<>();
     public static morphism compose(morphism f1,morphism f2){
-     return new morphism(f1.Funzione.andThen(f2.Funzione),"composedfunction",f1.IDI, f2.IDO)  ;
+     return new morphism(f1.Funzione.andThen(f2.Funzione),"composedfunction",f1.IDI, f2.IDO);
     }
     public  void add(element<E> i){
         this.element_list.add(i);

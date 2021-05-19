@@ -1,6 +1,5 @@
 package ema;
 
-import org.jetbrains.annotations.Contract;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -11,7 +10,7 @@ public class mainEma {
         return obj;
     }
 
-    @Contract(pure = true)
+
     public static <A, B, C> Function<A, C> compose(Function<B, C> g, Function<A, B> f) {
         return obj -> g.apply(f.apply(obj));
     }

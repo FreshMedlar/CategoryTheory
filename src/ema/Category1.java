@@ -1,13 +1,13 @@
 package ema;
 
-import org.jetbrains.annotations.Contract;
+
 
 import java.util.Locale;
 import java.util.function.Function;
 
 public class Category1 {
 
-    @Contract(pure = true)
+
     public static <T> Function<T, T> identity() {
         return (T t) -> t;
     };

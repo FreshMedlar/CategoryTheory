@@ -1,9 +1,6 @@
 package ema;
 
-import org.junit.Assert;
-
-import org.junit.Test;
-
+/*
 public class Test1 extends Assert{
 
     Class<?> anyObject(Object val) {
@@ -63,5 +60,5 @@ public class Test1 extends Assert{
         assertEquals(boolean.class, any(true));
         assertEquals(int.class, any(125));
     }
-}
+}*/
 

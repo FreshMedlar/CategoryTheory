@@ -5,10 +5,10 @@ import java.util.function.*;
 
 //import java.lang.reflect.*;
 class categoryint  extends category_m{
-
-    static Function<Integer, Integer> factorial_function = a->factorial(a);
-     Function<Integer,Float> root_function=a->squareroot(a);
-
+    static Function<Integer, Integer> factorial_function = categoryint::factorial;
+    Function<Integer,Float> root_function= categoryint::squareroot;
+    morphism factorial=new morphism(factorial_function,"factorial",001,001);
+    morphism squareroot=new morphism(root_function,"root_function",001,001);
     public categoryint(){
     }
     public categoryint(ArrayList<element<Integer>> elem, String n){
@@ -18,20 +18,19 @@ class categoryint  extends category_m{
     }
 
      void print() {
-         for (int i = 0; i < element_list.size(); i++) {
-             System.out.print(element_list.get(i) + "\n");
+         for (Object o : element_list) {
+             System.out.print(o + "\n");
          }
      }
     public String toString() {
-        String s="";
-        for (int i = 0; i < element_list.size(); i++){
-            s=s+element_list.get(i)+"\n";
+        StringBuilder s= new StringBuilder();
+        for (Object o : element_list) {
+            s.append(o).append("\n");
         }
-        return s;
+        return s.toString();
     }
     static  float squareroot(int N){
-        float a = (float) Math.sqrt(N);
-        return a ;
+        return (float) Math.sqrt(N);
     }
     static int factorial(int n){
             int res=1;

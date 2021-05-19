@@ -1,13 +1,16 @@
 package ema;
 
-/*
+import org.junit.Assert;
+
+//import org.junit.Test;
+
 public class Test1 extends Assert{
 
     Class<?> anyObject(Object val) {
         return val != null ? val.getClass() : null;
     }
 
-    @Test
+    //@Test
     public void anyObjectProof() {
         System.out.println(any(new int[]{}));
     }
@@ -17,7 +20,7 @@ public class Test1 extends Assert{
         return val != null ? val.getClass() : null;
     }
 
-    @Test
+    //@Test
     public void anyAsObject_alsoViaGenerics() {
         assertEquals(String.class, anyObject("a string"));
         assertEquals(String.class, anyGeneric("a string"));
@@ -49,7 +52,7 @@ public class Test1 extends Assert{
         return int.class;
     }
 
-    @Test
+    //@Test
     public void any_overloadedForAtomic() {
         assertEquals(String.class, any("a string"));
         assertEquals(Boolean.class, any(Boolean.TRUE));
@@ -60,5 +63,5 @@ public class Test1 extends Assert{
         assertEquals(boolean.class, any(true));
         assertEquals(int.class, any(125));
     }
-}*/
+}
 

@@ -1,3 +1,5 @@
+package ema;
+
 import org.jetbrains.annotations.Contract;
 
 import java.util.Locale;

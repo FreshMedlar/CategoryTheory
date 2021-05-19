@@ -18,12 +18,20 @@ public abstract class category_m <E>{
         element<E> el = new element<E>(i);
         add(el);
     }
-    public element get(E i){
+    public element pop(E i){
         for(int a=0;a<element_list.size();a++){
             if(element_list.get(a).value==i){
                 element b =new element(i);
                 element_list.remove(a);
                 return b;
+            }
+        }
+        return new element();
+    }
+    public element get(E i){
+        for(int a=0;a<element_list.size();a++){
+            if(element_list.get(a).value==i){
+                return element_list.get(a);
             }
         }
         return new element();

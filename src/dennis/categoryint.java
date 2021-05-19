@@ -34,8 +34,8 @@ class categoryint  extends category_m{
         return a ;
     }
     static int factorial(int n){
-            int res=1;
-           for (int i=1;i<n+1;i++){
+           int res=1;
+           for (int i=1;i<n+121;i++){
                res=res*i;
            }
            return res;

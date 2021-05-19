@@ -7,10 +7,10 @@ public class morphism {
     String nome;
     int IDI;
     int IDO;
-    public morphism(Function f1,String n,int input,int outputu){
+    public morphism(Function f1,String n,int input,int outputut){
         nome=n;
         Funzione=f1;
         IDI=input;
-        IDO=input;
+        IDO=outputut;
     }
 }

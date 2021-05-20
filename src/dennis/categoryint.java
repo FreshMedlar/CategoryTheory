@@ -19,11 +19,12 @@ class categoryint  extends category_m{
         id =n;
     }
 
-     void print() {
+    void print() {
          for (Object o : element_list) {
              System.out.print(o + "\n");
          }
-     }
+    }
+
     public String toString() {
         StringBuilder s= new StringBuilder();
         for (Object o : element_list) {
@@ -31,14 +32,17 @@ class categoryint  extends category_m{
         }
         return s.toString();
     }
+
     static  float squareroot(int N){
         return (float) Math.sqrt(N);
     }
+
     static int factorial(int n){
-            int res=1;
-           for (int i=1;i<n+1;i++){
-               res=res*i;
-           }
-           return res;
+        int res=1;
+        for (int i=1;i<n+1;i++){
+            res=res*i;
+        }
+        return res;
     }
+
 }

@@ -5,10 +5,12 @@ import java.util.function.*;
 
 //import java.lang.reflect.*;
 class categoryint  extends category_m{
+
     static Function<Integer, Integer> factorial_function = categoryint::factorial;
     Function<Integer,Float> root_function= categoryint::squareroot;
     morphism factorial=new morphism(factorial_function,"factorial",001,001) ;
     morphism squareroot=new morphism(root_function,"root_function",001,001) ;
+
     public categoryint(){
     }
     public categoryint(ArrayList<element<Integer>> elem, String n){

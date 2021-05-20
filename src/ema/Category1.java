@@ -22,10 +22,10 @@ public class Category1 {
     public static void main(String[] args) {
         String a = "ciao";
         a = a.toUpperCase(Locale.ROOT);
-
+        Integer b = 10;
         System.out.println(identity().apply(3));
-
-        System.out.println(compose( String::length , Integer::toBinaryString ).apply("ciao"));
+        System.out.println(compose( identity(), Integer::toBinaryString).apply(10));
+//        System.out.println(compose( String::length , Integer::toBinaryString ).apply("ciaao"));
 
     }
 }

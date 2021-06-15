@@ -4,31 +4,45 @@ import java.util.ArrayList;
 import java.util.function.*;
 
 //import java.lang.reflect.*;
-class categoryint  extends category_m{
+public class categoryint  extends category_m{
 
-    static Function<Integer, Integer> factorial_function = categoryint::factorial;
+    Function<Integer, Integer> factorial_function = categoryint::factorial;
     Function<Integer,Float> root_function= categoryint::squareroot;
-    morphism factorial=new morphism(factorial_function,"factorial",001,001) ;
-    morphism squareroot=new morphism(root_function,"root_function",001,001) ;
+
+    morphism factorial=new morphism(factorial_function,"factorial",001,001);
+    morphism squareroot=new morphism(root_function,"squareroot",001,001);
 
     public categoryint(){
     }
+
     public categoryint(ArrayList<element<Integer>> elem, String n){
         element_list=new ArrayList<element<Integer>>();
         element_list=elem;
         id =n;
+        morphism_list.add(factorial);
+        morphism_list.add(squareroot);
     }
 
-    void print() {
-         for (Object o : element_list) {
-             System.out.print(o + "\n");
-         }
-    }
+//    void print() {
+//         for (Object o : element_list) {
+//             System.out.print(o + "\n");
+//         }
+//    }
 
+    public void add_morphism (morphism m) {
+        morphism_list.add(m);
+    }
     public String toString() {
         StringBuilder s= new StringBuilder();
         for (Object o : element_list) {
             s.append(o).append("\n");
+        }
+        s.append("Morphisms : ");
+        for (int i=0; i<morphism_list.size(); i++) {
+
+            Object curr = morphism_list.get(i);
+
+            s.append(curr).append("\n");
         }
         return s.toString();
     }
@@ -36,7 +50,6 @@ class categoryint  extends category_m{
     static  float squareroot(int N){
         return (float) Math.sqrt(N);
     }
-
     static int factorial(int n){
         int res=1;
         for (int i=1;i<n+1;i++){

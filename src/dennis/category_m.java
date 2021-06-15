@@ -1,23 +1,33 @@
 package dennis;/*import javax.print.attribute.standard.MediaSize;
 import java.lang.reflect.Method;
 import java.util.ArrayList;*/
-import org.junit.Test;
+
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Function;
 
-public abstract class category_m <E>{
+public class category_m <E>{
 
-    protected String id ="";
+    String id ="";
 
-    public ArrayList<element<E>> element_list = new ArrayList<>();
+    static Function<Object , Object> identity_function = category_m::identity;
+    public static morphism identity = new morphism(identity_function, "identity", 000, 000 );
+
+    public ArrayList<element<E>> element_list = new ArrayList<>(); /* Arraylist of element in the category */
+    public ArrayList<morphism> morphism_list = new ArrayList<morphism>(Arrays.asList(identity)); /* Arraylist of morphism of the category */
 
     public static morphism compose(morphism f1,morphism f2){
-        return new morphism(f1.Funzione.andThen(f2.Funzione),"composedfunction",f1.IDI, f2.IDO);
+        return new morphism(f1.Funzione.andThen(f2.Funzione),"composedfunction",f1.domain, f2.codomain);
     }
 
-    <T> Function<T, T> identity_function () { return (T t) -> t; };
-    public static morphism identity = new morphism(Function.identity(), "identity", 000, 000 );
+    public void add_morphism (morphism m) {
+        morphism_list.add(m);
+    }
+
+    /*
+    *  Various method
+    */
 
     public  void add(element<E> i){
         this.element_list.add(i);
@@ -47,4 +57,6 @@ public abstract class category_m <E>{
         }
         return new element<>();
     }
+
+    public static <I> I identity(I i) { return i; }
 }

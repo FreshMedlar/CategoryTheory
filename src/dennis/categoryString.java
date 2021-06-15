@@ -1,6 +1,4 @@
-package ema;
-
-import dennis.*;
+package dennis;
 
 import java.util.ArrayList;
 

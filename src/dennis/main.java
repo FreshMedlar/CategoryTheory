@@ -13,6 +13,7 @@ public class main {
         System.out.println(a.morphism_list);
         a.compose(categoryint.factorial_m, categoryint.squareroot_m);
         System.out.println(a.morphism_list);
+        a.compose(categoryint.factorial_m, categoryString.bold);
 
 //        System.out.println(a);
         categoryString v = new categoryString();

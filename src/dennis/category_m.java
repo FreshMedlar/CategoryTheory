@@ -7,20 +7,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Function;
 
-public class category_m <E>{
+public class category_m <E> {
 
     String id ="";
 
     static Function<Object , Object> identity_function = category_m::identity;
-    public static morphism identity = new morphism(identity_function, "identity", 000, 000 );
+    public static morphism identity = new morphism(identity_function, "identity", "object", "object" );
 
     public ArrayList<element<E>> element_list = new ArrayList<>(); /* Arraylist of element in the category */
     public ArrayList<morphism> morphism_list = new ArrayList<morphism>(Arrays.asList(identity)); /* Arraylist of morphism of the category */
 
-    public void compose(morphism f1,morphism f2){
+
+    public void compose(morphism f1,morphism f2) throws IllegalCompositionError{
+        if (f1.codomain != f2.domain) {
+            throw new IllegalCompositionError();
+        }
         morphism m = new morphism(f1.Funzione.andThen(f2.Funzione),f1.nome+"_"+f2.nome, f1.domain, f2.codomain);
         morphism_list.add( m );
     }
+
     public void add_morphism (morphism m) {
         morphism_list.add(m);
     }

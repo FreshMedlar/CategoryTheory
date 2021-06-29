@@ -20,8 +20,8 @@ public class categoryint  extends category_m{
     static Function<Integer, Integer> factorial_function = categoryint::factorial;
     static Function<Integer,Float> root_function= categoryint::squareroot;
 
-    public static morphism factorial_m=new morphism(factorial_function,"factorial",001,001);
-    public static morphism squareroot_m=new morphism(root_function,"squareroot",001,001);
+    public static morphism factorial_m=new morphism(factorial_function,"factorial","integer","integer");
+    public static morphism squareroot_m=new morphism(root_function,"squareroot","integer","integer");
 
 //    void print() {
 //         for (Object o : element_list) {

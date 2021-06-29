@@ -6,12 +6,6 @@ import java.util.function.*;
 //import java.lang.reflect.*;
 public class categoryint  extends category_m{
 
-    Function<Integer, Integer> factorial_function = categoryint::factorial;
-    Function<Integer,Float> root_function= categoryint::squareroot;
-
-    morphism factorial=new morphism(factorial_function,"factorial",001,001);
-    morphism squareroot=new morphism(root_function,"squareroot",001,001);
-
     public categoryint(){
     }
 
@@ -19,9 +13,15 @@ public class categoryint  extends category_m{
         element_list=new ArrayList<element<Integer>>();
         element_list=elem;
         id =n;
-        morphism_list.add(factorial);
-        morphism_list.add(squareroot);
+        morphism_list.add(factorial_m);
+        morphism_list.add(squareroot_m);
     }
+
+    static Function<Integer, Integer> factorial_function = categoryint::factorial;
+    static Function<Integer,Float> root_function= categoryint::squareroot;
+
+    public static morphism factorial_m=new morphism(factorial_function,"factorial",001,001);
+    public static morphism squareroot_m=new morphism(root_function,"squareroot",001,001);
 
 //    void print() {
 //         for (Object o : element_list) {
@@ -29,9 +29,6 @@ public class categoryint  extends category_m{
 //         }
 //    }
 
-    public void add_morphism (morphism m) {
-        morphism_list.add(m);
-    }
     public String toString() {
         StringBuilder s= new StringBuilder();
         for (Object o : element_list) {

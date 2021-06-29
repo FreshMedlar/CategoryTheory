@@ -1,33 +1,34 @@
-package dennis;/*import javax.print.attribute.standard.MediaSize;
-import java.lang.reflect.Method;
-import java.util.ArrayList;*/
+package ema;
 
+import dennis.category_m;
+import dennis.element;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Function;
 
-public class category_m <E>{
+public class category_general<E>{
 
     String id ="";
 
     static Function<Object , Object> identity_function = category_m::identity;
-    public static morphism identity = new morphism(identity_function, "identity", 000, 000 );
+    public static morphism_ema identity = new morphism_ema(identity_function, "identity", 000, 000 );
 
     public ArrayList<element<E>> element_list = new ArrayList<>(); /* Arraylist of element in the category */
-    public ArrayList<morphism> morphism_list = new ArrayList<morphism>(Arrays.asList(identity)); /* Arraylist of morphism of the category */
+    public ArrayList<morphism_ema> morphism_list = new ArrayList<morphism_ema>(Arrays.asList(identity)); /* Arraylist of morphism of the category */
 
-    public void compose(morphism f1,morphism f2){
-        morphism m = new morphism(f1.Funzione.andThen(f2.Funzione),f1.nome+"_"+f2.nome, f1.domain, f2.codomain);
-        morphism_list.add( m );
-    }
-    public void add_morphism (morphism m) {
-        morphism_list.add(m);
-    }
 
     /*
-    *  Various method
-    */
+     *  Various method
+     */
+
+    public void compose(morphism_ema f1,morphism_ema f2){
+        morphism_ema m = new morphism_ema(f1.Funzione.andThen(f2.Funzione),f1.nome+"_"+f2.nome, f1.domain, f2.codomain);
+        morphism_list.add( m );
+    }
+    public void add_morphism (morphism_ema m) {
+        morphism_list.add(m);
+    }
 
     public  void add(element<E> i){
         this.element_list.add(i);
@@ -59,4 +60,7 @@ public class category_m <E>{
     }
 
     public static <I> I identity(I i) { return i; }
+
+
+
 }

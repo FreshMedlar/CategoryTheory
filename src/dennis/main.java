@@ -11,7 +11,8 @@ public class main {
         categoryint a=new categoryint(uno, "interi");
         a.add(10);
         System.out.println(a.morphism_list);
-
+        a.compose(categoryint.factorial_m, categoryint.squareroot_m);
+        System.out.println(a.morphism_list);
 
 //        System.out.println(a);
         categoryString v = new categoryString();

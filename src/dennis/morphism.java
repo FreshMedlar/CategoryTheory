@@ -15,6 +15,8 @@ public class morphism {
         this.codomain=codomain;
     }
 
+    public morphism(){}
+
     @Override
     public String toString() {
         return "nome='" + nome + '\'' ;

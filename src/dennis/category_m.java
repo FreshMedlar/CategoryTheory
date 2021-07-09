@@ -18,13 +18,15 @@ public class category_m <E> {
     public ArrayList<morphism> morphism_list = new ArrayList<morphism>(Arrays.asList(identity)); /* Arraylist of morphism of the category */
 
 
-    public void compose(morphism f1,morphism f2) throws IllegalCompositionError{
+    public morphism compose(morphism f1,morphism f2) throws IllegalCompositionError{
         if (f1.codomain != f2.domain) {
             throw new IllegalCompositionError();
         }
         morphism m = new morphism(f1.Funzione.andThen(f2.Funzione),f1.nome+"_"+f2.nome, f1.domain, f2.codomain);
         morphism_list.add( m );
+        return m;
     }
+
 
     public void add_morphism (morphism m) {
         morphism_list.add(m);
@@ -64,4 +66,18 @@ public class category_m <E> {
     }
 
     public static <I> I identity(I i) { return i; }
+
+
+    public morphism call_morphism(String s){
+        morphism m=new morphism();
+        for (int i=0;i<morphism_list.size();i++){
+            String name=morphism_list.get(i).nome;
+            if (name.equals(s)){
+                System.out.println("here");
+                m=morphism_list.get(i);
+            }
+        }
+        return m;
+
+    }
 }

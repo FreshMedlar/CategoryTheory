@@ -87,7 +87,36 @@ public class category_m <E> {
 
     //E risultato -- input deve essere uguale all'output
     public boolean is_inverse(morphism m1,morphism m2,E risultato){
-        return true;
+        String composedname= m1.nome+"_"+m2.nome;
+        boolean alreadyin=false;
+        boolean to_return=false;
+        for (int i=0;i<morphism_list.size();i++) {
+            String name = morphism_list.get(i).nome;
+            if (name.equals(composedname)) {
+                alreadyin = true;
+            }
+        }
+        if (alreadyin){
+            if (risultato==this.call_morphism(composedname).Funzione.apply(risultato)){
+                to_return=true;
+            }
+            else{
+                to_return=false;
+            }
+        }
+        else{
+            this.compose(m1,m2);
+            if (risultato==this.call_morphism(composedname).Funzione.apply(risultato)){
+                to_return=true;
+            }
+            else{
+                to_return=false;
+            }
+        }
 
-    }
+        return to_return;
+
+        }
+
+
 }

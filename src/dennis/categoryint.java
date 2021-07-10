@@ -15,14 +15,19 @@ public class categoryint  extends category_m{
         id =n;
         morphism_list.add(factorial_m);
         morphism_list.add(squareroot_m);
+        morphism_list.add(successor_m);
+        morphism_list.add(predecessor_m);
     }
 
     static Function<Integer, Integer> factorial_function = categoryint::factorial;
     static Function<Integer,Float> root_function= categoryint::squareroot;
+    static Function<Integer,Integer> successor_function= categoryint::successor;
+    static Function<Integer,Integer> predecessor_function=categoryint::predecessor;
 
     public static morphism factorial_m=new morphism(factorial_function,"factorial","integer","integer");
     public static morphism squareroot_m=new morphism(root_function,"squareroot","integer","integer");
-
+    public static morphism successor_m=new morphism(successor_function,"successor","integer","integer");
+    public static morphism predecessor_m=new morphism(predecessor_function,"predecessor","integer","integer");
 //    void print() {
 //         for (Object o : element_list) {
 //             System.out.print(o + "\n");
@@ -43,6 +48,11 @@ public class categoryint  extends category_m{
         }
         return s.toString();
     }
+
+    static int successor (int n){return (n+1);}
+
+    static int predecessor (int n){return (n-1);}
+
 
     static  float squareroot(int N){
         return (float) Math.sqrt(N);

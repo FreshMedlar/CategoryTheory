@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class main {
     public static void main(String[] args) {
 
+        /*
         ArrayList<element<String>> stringhe = new ArrayList<>();
         stringhe.add(new element<>("ciao"));
         categoryString strings =new categoryString(stringhe,"strings");
@@ -20,6 +21,22 @@ public class main {
         //System.out.println(strings.duplicate.Funzione.apply("ciao"));
         //strings.call_morphism("duplicate_count_letters");
 
+
+         */
+        ArrayList<element<Integer>> interi= new ArrayList<>();
+        interi.add(new element<>(5));
+        //chiamare funzioni sugli elementi della element_list interi
+        categoryint integers=new categoryint(interi,"integers");
+        System.out.println(integers.morphism_list);
+        System.out.println(integers.factorial(4));
+        System.out.println(integers.squareroot(4));
+        System.out.println(integers.successor(4));
+        System.out.println(integers.predecessor(4));
+        System.out.println(integers.element_list);
+        System.out.println(integers.compose(integers.factorial_m,integers.predecessor_m).Funzione.apply(4));
+        System.out.println(integers.morphism_list);
+        System.out.println(integers.compose(integers.successor_m,integers.predecessor_m).Funzione.apply(4));
+        System.out.println(integers.morphism_list);
 
 
 

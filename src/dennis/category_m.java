@@ -69,6 +69,10 @@ public class category_m <E> {
 
 
     public morphism call_morphism(String s){
+
+        //call_morphism serve a chiamare il morphism su un altro object. Il morphism continua a comparire
+        //una sola volta in morphism_list
+
         morphism m=new morphism();
         for (int i=0;i<morphism_list.size();i++){
             String name=morphism_list.get(i).nome;
@@ -78,6 +82,12 @@ public class category_m <E> {
             }
         }
         return m;
+
+    }
+
+    //E risultato -- input deve essere uguale all'output
+    public boolean is_inverse(morphism m1,morphism m2,E risultato){
+        return true;
 
     }
 }

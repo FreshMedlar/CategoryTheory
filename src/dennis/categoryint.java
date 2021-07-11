@@ -1,5 +1,7 @@
 package dennis;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.function.*;
 
@@ -13,10 +15,15 @@ public class categoryint  extends category_m{
         element_list=new ArrayList<element<Integer>>();
         element_list=elem;
         id =n;
-        morphism_list.add(factorial_m);
-        morphism_list.add(squareroot_m);
-        morphism_list.add(successor_m);
-        morphism_list.add(predecessor_m);
+        Class c_int = categoryint.class;
+        Method[] meth = c_int.getDeclaredMethods();
+        for(int i = 0; i < meth.length; i++) {
+            if (Modifier.isStatic(meth[i].getModifiers())) {
+                System.out.println("The method # " + i + " " + meth[i].toString());
+
+            }
+        }
+
     }
 
     static Function<Integer, Integer> factorial_function = categoryint::factorial;
@@ -28,11 +35,12 @@ public class categoryint  extends category_m{
     public static morphism squareroot_m=new morphism(root_function,"squareroot","integer","integer");
     public static morphism successor_m=new morphism(successor_function,"successor","integer","integer");
     public static morphism predecessor_m=new morphism(predecessor_function,"predecessor","integer","integer");
-//    void print() {
-//         for (Object o : element_list) {
-//             System.out.print(o + "\n");
-//         }
-//    }
+
+    //    void print() {
+    //         for (Object o : element_list) {
+    //             System.out.print(o + "\n");
+    //         }
+    //    }
 
     public String toString() {
         StringBuilder s= new StringBuilder();
@@ -53,10 +61,10 @@ public class categoryint  extends category_m{
 
     static int predecessor (int n){return (n-1);}
 
-
     static  float squareroot(int N){
         return (float) Math.sqrt(N);
     }
+
     static int factorial(int n){
         int res=1;
         for (int i=1;i<n+1;i++){

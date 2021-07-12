@@ -1,5 +1,6 @@
 package dennis;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -15,15 +16,10 @@ public class categoryint  extends category_m{
         element_list=new ArrayList<element<Integer>>();
         element_list=elem;
         id =n;
-        Class c_int = categoryint.class;
-        Method[] meth = c_int.getDeclaredMethods();
-        for(int i = 0; i < meth.length; i++) {
-            if (Modifier.isStatic(meth[i].getModifiers())) {
-                System.out.println("The method # " + i + " " + meth[i].toString());
-
-            }
-        }
-
+        morphism_list.add(factorial_m);
+        morphism_list.add(squareroot_m);
+        morphism_list.add(successor_m);
+        morphism_list.add(predecessor_m);
     }
 
     static Function<Integer, Integer> factorial_function = categoryint::factorial;

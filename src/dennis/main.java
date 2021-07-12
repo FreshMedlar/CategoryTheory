@@ -40,7 +40,7 @@ public class main {
 
         System.out.println(integers.is_inverse(integers.predecessor_m,integers.successor_m,4));
         System.out.println(integers.is_inverse(integers.factorial_m,integers.successor_m,4));
-
+        System.out.println(integers.morphism_list);
 
 
 
